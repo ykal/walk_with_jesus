@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walk With Jesus | The Passion Journey</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,500;1,700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --gold: #c5a059;
@@ -15,8 +17,10 @@
             --warm-base: #0a0806;
         }
 
-        body, html {
-            margin: 0; padding: 0;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
             background-color: var(--warm-base);
             background-image: radial-gradient(ellipse 90% 55% at 50% -15%, rgba(197, 160, 89, 0.11), transparent 52%);
             color: #fff;
@@ -26,10 +30,23 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            body, html { scroll-behavior: auto; }
-            .hero-bg { animation: none; }
-            #next-btn { animation: none; }
-            .card:hover { transform: none; }
+
+            body,
+            html {
+                scroll-behavior: auto;
+            }
+
+            .hero-bg {
+                animation: none;
+            }
+
+            #next-btn {
+                animation: none;
+            }
+
+            .card:hover {
+                transform: none;
+            }
         }
 
         a:focus-visible,
@@ -46,12 +63,30 @@
 
         /* 1. Global Navigation (Dots) */
         .station-map {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            z-index: 100; display: flex; gap: 10px;
-            background: rgba(0, 0, 0, 0.6); padding: 12px 20px; border-radius: 50px;
-            backdrop-filter: blur(15px); border: 1px solid rgba(197, 160, 89, 0.3);
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 12px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.3);
         }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: #444; transition: 0.4s; box-sizing: content-box; border: 1px solid transparent; }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #444;
+            transition: 0.4s;
+            box-sizing: content-box;
+            border: 1px solid transparent;
+        }
+
         .dot.active {
             background: var(--gold);
             box-shadow: 0 0 15px var(--gold);
@@ -61,82 +96,279 @@
 
         /* 2. Floating Navigation Buttons */
         .nav-btn {
-            position: fixed; bottom: 30px; background: rgba(20, 20, 20, 0.85);
-            border: 1px solid var(--gold); color: var(--gold); padding: 12px 22px;
-            border-radius: 50px; cursor: pointer; font-family: 'Cinzel', serif;
-            font-size: 0.75rem; letter-spacing: 2px; z-index: 1000;
-            backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex; align-items: center; gap: 10px; text-transform: uppercase;
+            position: fixed;
+            bottom: 30px;
+            background: rgba(20, 20, 20, 0.85);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
         }
-        .nav-btn:hover { background: var(--gold); color: #000; transform: scale(1.05); box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); }
-        #next-btn { right: 30px; animation: pulse-gold 2.5s ease-in-out infinite; }
-        #top-btn { right: 30px; bottom: 90px; opacity: 0; pointer-events: none; transform: translateY(20px); }
-        #top-btn.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+        .nav-btn:hover {
+            background: var(--gold);
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+        }
+
+        #next-btn {
+            right: 30px;
+            animation: pulse-gold 2.5s ease-in-out infinite;
+        }
+
+        #top-btn {
+            right: 30px;
+            bottom: 90px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+        }
+
+        #top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
 
         @keyframes pulse-gold {
-            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(197, 160, 89, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+            }
         }
 
         /* 3. Integrated Hero & Map */
         #hero {
-            min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; position: relative;
-            overflow: hidden; text-align: center; padding: 100px 0; box-sizing: border-box;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 100px 0;
+            box-sizing: border-box;
             isolation: isolate;
         }
+
         #hero::after {
             content: '';
-            position: absolute; inset: 0; z-index: 0; pointer-events: none;
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
             box-shadow: inset 0 0 100px 30px rgba(0, 0, 0, 0.55);
             background: radial-gradient(ellipse 70% 45% at 50% 100%, rgba(197, 160, 89, 0.06), transparent 55%);
         }
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('assets/bg/hero.jpg');
-            background-size: cover; background-position: center; filter: brightness(0.32) grayscale(0.35);
-            z-index: 0; pointer-events: none; animation: zoomEffect 38s ease-in-out infinite alternate;
-        }
-        @keyframes zoomEffect { from { transform: scale(1); } to { transform: scale(1.08); } }
 
-        .hero-content { position: relative; width: 90%; max-width: 1100px; z-index: 1; }
-        .hero-content h1 { font-family: 'Cinzel'; font-size: clamp(2.5rem, 8vw, 5rem); color: var(--gold); margin: 0; text-shadow: 0 0 20px rgba(0,0,0,1); }
-        .subtitle { font-style: italic; font-size: 1.4rem; color: var(--gold); letter-spacing: 4px; margin-top: 10px; opacity: 0.9; }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/bg/hero_1.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.32) grayscale(0.35);
+            z-index: 0;
+            pointer-events: none;
+            animation: zoomEffect 38s ease-in-out infinite alternate;
+        }
+
+        @keyframes zoomEffect {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            width: 90%;
+            max-width: 1100px;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cinzel';
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--gold);
+            margin: 0;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 1);
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--gold);
+            letter-spacing: 4px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
 
         /* Path Map S-Curve */
-        .path-container { position: relative; width: 100%; height: 280px; margin: 50px auto 0 auto; }
-        .path-svg { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; opacity: 0.2; }
-        .nodes-wrapper { position: relative; width: 100%; height: 100%; z-index: 2; }
-        .node-link { position: absolute; text-decoration: none; display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%); transition: 0.3s ease; }
-        .node-circle { width: 36px; height: 36px; background: #000; border: 1px solid var(--gold); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold); font-family: 'Cinzel'; font-size: 0.8rem; }
-        .node-link:hover .node-circle { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); }
-        .node-label { margin-top: 8px; font-family: 'Cinzel'; font-size: 0.6rem; color: #fff; text-transform: uppercase; white-space: nowrap; letter-spacing: 1px; }
+        .path-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            margin: 50px auto 0 auto;
+        }
+
+        .path-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .nodes-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .node-link {
+            position: absolute;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            transition: 0.3s ease;
+        }
+
+        .node-circle {
+            width: 36px;
+            height: 36px;
+            background: #000;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--gold);
+            font-family: 'Cinzel';
+            font-size: 0.8rem;
+        }
+
+        .node-link:hover .node-circle {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .node-label {
+            margin-top: 8px;
+            font-family: 'Cinzel';
+            font-size: 0.6rem;
+            color: #fff;
+            text-transform: uppercase;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
 
         /* 4. Sections & Cards */
-        section { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 0; isolation: isolate; overflow: hidden; }
-        .bg-img {
-            position: absolute; top: 0; left: 0; width: 100%; height: 120%; min-height: 100%;
-            background-size: cover; background-position: center;
-            filter: blur(12px) brightness(0.3);
-            z-index: 0; pointer-events: none;
+        section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0;
+            isolation: isolate;
+            overflow: hidden;
         }
+
+        .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            min-height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(12px) brightness(0.3);
+            z-index: 0;
+            pointer-events: none;
+        }
+
         .bg-img::after {
             content: '';
-            position: absolute; inset: 0;
+            position: absolute;
+            inset: 0;
             box-shadow: inset 0 0 100px 45px rgba(0, 0, 0, 0.55);
             pointer-events: none;
         }
+
         .content {
-            position: relative; width: 95%; max-width: 1200px; text-align: center; z-index: 1;
+            position: relative;
+            width: 95%;
+            max-width: 1200px;
+            text-align: center;
+            z-index: 1;
             padding-top: 0.5rem;
             border-top: 1px solid rgba(139, 0, 0, 0.28);
         }
-        h2 { font-family: 'Cinzel'; color: var(--gold); font-size: clamp(1.45rem, 4.2vw, 2.2rem); margin-bottom: 20px; border-bottom: 1px solid var(--blood); display: inline-block; padding-bottom: 5px; }
 
-        .slider-wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
-        .slider-container { display: flex; overflow-x: auto; gap: 30px; padding: 40px 20px 12px; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .slider-container::-webkit-scrollbar { display: none; }
+        h2 {
+            font-family: 'Cinzel';
+            color: var(--gold);
+            font-size: clamp(1.45rem, 4.2vw, 2.2rem);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--blood);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .slider-wrap {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .slider-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 40px 20px 12px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
         .slider-hint {
             display: none;
             font-family: 'Cinzel', serif;
@@ -147,19 +379,90 @@
             text-align: center;
             margin: 0.45rem 0 0;
         }
-        
+
         .card {
-            min-width: 310px; max-width: 310px; background: var(--card-bg);
-            border-radius: 15px; overflow: hidden; display: flex; flex-direction: column;
-            scroll-snap-align: center; flex-shrink: 0; transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8); border: 1px solid rgba(197, 160, 89, 0.1);
+            min-width: 310px;
+            max-width: 310px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(197, 160, 89, 0.1);
         }
-        .card:hover { transform: translateY(-15px); border-color: var(--gold); }
-        .card-image-wrapper { position: relative; width: 100%; height: 190px; overflow: hidden; }
-        .card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 0.6s; }
-        .card-image-title { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); color: var(--gold); font-family: 'Cinzel'; font-size: 1.1rem; text-align: left; margin: 0; }
-        .card-content { padding: 20px; text-align: left; }
-        .card-content p { font-size: 0.95rem; line-height: 1.6; color: #ddd; margin: 0; }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold);
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            transition: 0.6s;
+        }
+
+        .card-image-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+            color: var(--gold);
+            font-family: 'Cinzel';
+            font-size: 1.1rem;
+            text-align: left;
+            margin: 0;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .card .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #ddd;
+            margin: 0;
+        }
+
+        .card .card-content p {
+            position: relative;
+            padding-left: 1.15em;
+        }
+
+        .card .card-content p::before {
+            content: '\271D';
+            position: absolute;
+            left: 0;
+            top: 0.06em;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.72em;
+            line-height: 1.6;
+            opacity: 0.88;
+        }
 
         .card-reflection {
             position: relative;
@@ -171,32 +474,101 @@
             background: var(--card-bg);
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(139, 0, 0, 0.15);
         }
+
         .card-reflection::before {
             content: '';
-            position: absolute; inset: 0; pointer-events: none; opacity: 0.45;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.45;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
         }
+
         .card-reflection::after {
             content: '';
-            position: absolute; inset: 0; pointer-events: none; opacity: 0.4;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.4;
             background:
                 linear-gradient(90deg, transparent 47.5%, rgba(197, 160, 89, 0.12) 49.8%, rgba(197, 160, 89, 0.12) 50.2%, transparent 52.5%),
                 linear-gradient(0deg, transparent 47.5%, rgba(197, 160, 89, 0.12) 49.8%, rgba(197, 160, 89, 0.12) 50.2%, transparent 52.5%);
         }
-        .card-reflection .card-content { position: relative; z-index: 1; padding: 28px 26px; text-align: center; }
-        .card-reflection h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.35rem; margin: 0 0 0.85rem; font-weight: 700; }
-        .card-reflection .card-content p { color: #ddd; line-height: 1.65; margin: 0; }
 
-        footer { padding: 80px 20px; text-align: center; font-family: 'Cinzel'; color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; }
-        footer .art-credit { margin-top: 1rem; font-family: 'Lora', serif; font-size: 0.65rem; letter-spacing: 0.05em; color: #888; max-width: 36rem; margin-left: auto; margin-right: auto; line-height: 1.5; }
+        .card-reflection .card-content {
+            position: relative;
+            z-index: 1;
+            padding: 28px 26px;
+            text-align: center;
+        }
+
+        .card-reflection h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.35rem;
+            margin: 0 0 0.85rem;
+            font-weight: 700;
+        }
+
+        .card-reflection .card-content p {
+            color: #ddd;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            font-family: 'Cinzel';
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        footer .art-credit {
+            margin-top: 1rem;
+            font-family: 'Lora', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            color: #888;
+            max-width: 36rem;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
 
         @media (max-width: 768px) {
-            .path-svg { display: none; }
-            .path-container { height: auto; margin-top: 30px; }
-            .nodes-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-            .node-link { position: relative !important; left: auto !important; top: auto !important; transform: none !important; }
-            .nav-btn { padding: 10px 15px; font-size: 0.65rem; }
-            .slider-hint { display: block; }
+            .path-svg {
+                display: none;
+            }
+
+            .path-container {
+                height: auto;
+                margin-top: 30px;
+            }
+
+            .nodes-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .node-link {
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                transform: none !important;
+            }
+
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.65rem;
+            }
+
+            .slider-hint {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -217,7 +589,8 @@
     </nav>
 
     <button type="button" id="top-btn" class="nav-btn" onclick="scrollToTop()" aria-label="Back to top">↑ TOP</button>
-    <button type="button" id="next-btn" class="nav-btn" onclick="scrollToNext()" aria-label="Next station">NEXT STATION →</button>
+    <button type="button" id="next-btn" class="nav-btn" onclick="scrollToNext()" aria-label="Next station">NEXT STATION
+        →</button>
 
     <header id="hero">
         <div class="hero-bg"></div>
@@ -226,18 +599,37 @@
             <p class="subtitle">The Journey of the Passion</p>
             <div class="path-container">
                 <svg class="path-svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
-                    <path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100" stroke="#c5a059" stroke-width="2" fill="transparent" />
+                    <path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100" stroke="#c5a059" stroke-width="2"
+                        fill="transparent" />
                 </svg>
                 <div class="nodes-wrapper">
-                    <a href="#s1" class="node-link" style="left: 0%; top: 50%;"><div class="node-circle">1</div><span class="node-label">Agony</span></a>
-                    <a href="#s2" class="node-link" style="left: 12.5%; top: 75%;"><div class="node-circle">2</div><span class="node-label">Betrayal</span></a>
-                    <a href="#s3" class="node-link" style="left: 25%; top: 25%;"><div class="node-circle">3</div><span class="node-label">Trials</span></a>
-                    <a href="#s4" class="node-link" style="left: 37.5%; top: 50%;"><div class="node-circle">4</div><span class="node-label">Denial</span></a>
-                    <a href="#s5" class="node-link" style="left: 50%; top: 75%;"><div class="node-circle">5</div><span class="node-label">Trial</span></a>
-                    <a href="#s6" class="node-link" style="left: 62.5%; top: 25%;"><div class="node-circle">6</div><span class="node-label">The Way</span></a>
-                    <a href="#s7" class="node-link" style="left: 75%; top: 50%;"><div class="node-circle">7</div><span class="node-label">Sacrifice</span></a>
-                    <a href="#s8" class="node-link" style="left: 87.5%; top: 75%;"><div class="node-circle">8</div><span class="node-label">7 Words</span></a>
-                    <a href="#s9" class="node-link" style="left: 100%; top: 25%;"><div class="node-circle">9</div><span class="node-label">Reflection</span></a>
+                    <a href="#s1" class="node-link" style="left: 0%; top: 50%;">
+                        <div class="node-circle">1</div><span class="node-label">Agony</span>
+                    </a>
+                    <a href="#s2" class="node-link" style="left: 12.5%; top: 75%;">
+                        <div class="node-circle">2</div><span class="node-label">Betrayal</span>
+                    </a>
+                    <a href="#s3" class="node-link" style="left: 25%; top: 25%;">
+                        <div class="node-circle">3</div><span class="node-label">Trials</span>
+                    </a>
+                    <a href="#s4" class="node-link" style="left: 37.5%; top: 50%;">
+                        <div class="node-circle">4</div><span class="node-label">Denial</span>
+                    </a>
+                    <a href="#s5" class="node-link" style="left: 50%; top: 75%;">
+                        <div class="node-circle">5</div><span class="node-label">Trial</span>
+                    </a>
+                    <a href="#s6" class="node-link" style="left: 62.5%; top: 25%;">
+                        <div class="node-circle">6</div><span class="node-label">The Way</span>
+                    </a>
+                    <a href="#s7" class="node-link" style="left: 75%; top: 50%;">
+                        <div class="node-circle">7</div><span class="node-label">Sacrifice</span>
+                    </a>
+                    <a href="#s8" class="node-link" style="left: 87.5%; top: 75%;">
+                        <div class="node-circle">8</div><span class="node-label">7 Words</span>
+                    </a>
+                    <a href="#s9" class="node-link" style="left: 100%; top: 25%;">
+                        <div class="node-circle">9</div><span class="node-label">Reflection</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -248,23 +640,48 @@
         <div class="content">
             <h2>1. The Agony</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Bloody Sweat</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/the_agony/prayer.jpg">
+                            <h3 class="card-image-title">Bloody Sweat</h3>
+                        </div>
+                        <div class="card-content">
+                            <p> After the Last Supper, Jesus goes to the Garden of Gethsemane. He separates to pray.
+                            </p>
+                            <p>
+                                Faced with the weight of human sin, Jesus felt intense sorrow and fear. His sweat became
+                                like drops of blood (Luke 22:44). 
+                            </p>
+                            <p>This internal agony was the first sacrifice of the
+                                Passion.
+                            </p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>Faced with the weight of human sin, His sweat became like drops of blood. This internal agony was the first sacrifice of the Passion.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">The Cup</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/the_agony/desciples_sleeping.jpg">
+                            <h3 class="card-image-title">The Cup</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>‘Father, let this cup pass if possible’ (Mt 26:39) </p>
+                            <p>His disciples fall asleep</p>
+                            <p>‘Father, not My will, but Yours be done.’</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>"Father, if it be possible, let this cup pass from Me." Jesus surrenders His human will to the divine plan for our salvation.</p></div>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="assets/common/lesson.jpg">
+                            <h3 class="card-image-title">Life Lesson</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Pray in your hardest moments</p>
+                            <p>It’s okay to feel weak</p>
+                            <p>Choose God’s will anyway</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -274,23 +691,29 @@
         <div class="content">
             <h2>2. The Betrayal</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">The Kiss</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">The Kiss</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Judas betrays the Son of Man with a kiss. The pain of betrayal from a friend marks the
+                                beginning of His outward suffering.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>Judas betrays the Son of Man with a kiss. The pain of betrayal from a friend marks the beginning of His outward suffering.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Binding</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Binding</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>The Hands that created the universe were bound with ropes. He allowed Himself to be tied
+                                so that we could be set free from sin.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>The Hands that created the universe were bound with ropes. He allowed Himself to be tied so that we could be set free from sin.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -300,23 +723,29 @@
         <div class="content">
             <h2>3. The High Priests</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Spitting</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Spitting</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>They spat on the face of the One who gives sight to the blind. He bore the deepest shame
+                                to restore our dignity.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>They spat on the face of the One who gives sight to the blind. He bore the deepest shame to restore our dignity.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">The Slap</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">The Slap</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Struck across the face by the servant of the High Priest. The Creator remained silent
+                                while the creation struck Him.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>Struck across the face by the servant of the High Priest. The Creator remained silent while the creation struck Him.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -326,23 +755,29 @@
         <div class="content">
             <h2>4. Peter's Denial</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">The Look</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">The Look</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>As the rooster crowed, Jesus looked at Peter. It was a look of deep sorrow and mercy that
+                                led to Peter's repentance.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>As the rooster crowed, Jesus looked at Peter. It was a look of deep sorrow and mercy that led to Peter's repentance.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Repentance</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Repentance</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Peter went out and wept bitterly. He realized that while human strength fails, Christ's
+                                grace remains sufficient.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>Peter went out and wept bitterly. He realized that while human strength fails, Christ's grace remains sufficient.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -352,23 +787,29 @@
         <div class="content">
             <h2>5. The Roman Trial</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Scourge</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Scourge</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>6,666 lashes tore His sacred flesh. He took these stripes so that by His wounds we might
+                                find eternal healing.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>6,666 lashes tore His sacred flesh. He took these stripes so that by His wounds we might find eternal healing.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Akli-le-Soh</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Akli-le-Soh</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>A crown of 72 thorns. He wore the curse of the earth to give us the crown of the Heavenly
+                                Kingdom.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>A crown of 72 thorns. He wore the curse of the earth to give us the crown of the Heavenly Kingdom.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -378,23 +819,29 @@
         <div class="content">
             <h2>6. The Way to Karanio</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Falls</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Falls</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Christ falls under the weight of the cross. He falls to the earth to lift us up from our
+                                own spiritual falls.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>Christ falls under the weight of the cross. He falls to the earth to lift us up from our own spiritual falls.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Simon of Cyrene</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Simon of Cyrene</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>A human helps carry the cross of God. We are reminded that we are called to bear one
+                                another's burdens.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>A human helps carry the cross of God. We are reminded that we are called to bear one another's burdens.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -404,23 +851,29 @@
         <div class="content">
             <h2>7. The Sacrifice</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Nails</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Nails</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Iron through the hands that healed and the feet that brought peace. He is fixed to the
+                                wood to anchor our salvation.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>Iron through the hands that healed and the feet that brought peace. He is fixed to the wood to anchor our salvation.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">The Spear</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">The Spear</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>His side is pierced, and Blood and Water flow—the fountain of the Sacraments and the life
+                                of the Church.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>His side is pierced, and Blood and Water flow—the fountain of the Sacraments and the life of the Church.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -430,23 +883,29 @@
         <div class="content">
             <h2>8. The Seven Words</h2>
             <div class="slider-wrap">
-            <div class="slider-container">
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Forgiveness</h3>
+                <div class="slider-container">
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Forgiveness</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>"Father, forgive them." In the height of His pain, Christ’s first priority is interceding
+                                for those who caused it.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>"Father, forgive them." In the height of His pain, Christ’s first priority is interceding for those who caused it.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
-                        <h3 class="card-image-title">Victory</h3>
+                    <div class="card">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=600">
+                            <h3 class="card-image-title">Victory</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>"It is finished." The mission of redemption is complete. The gates of Paradise are no
+                                longer barred.</p>
+                        </div>
                     </div>
-                    <div class="card-content"><p>"It is finished." The mission of redemption is complete. The gates of Paradise are no longer barred.</p></div>
                 </div>
-            </div>
-            <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
+                <p class="slider-hint" aria-hidden="true">Swipe for more →</p>
             </div>
         </div>
     </section>
@@ -458,15 +917,15 @@
             <div class="card-reflection">
                 <div class="card-content">
                     <h3>Your Journey</h3>
-                    <p>The 13 Sufferings were a personal act of love for you. He took the pain so you could have the peace. How will you respond today?</p>
+                    <p>The 13 Sufferings were a personal act of love for you. He took the pain so you could have the
+                        peace. How will you respond today?</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>EOTC | WALK WITH JESUS 2026</p>
-        <p class="art-credit">Background art: historical paintings from Wikimedia Commons (public domain or open license).</p>
+        <p>EOTC | 2026</p>
     </footer>
 
     <script>
@@ -574,4 +1033,5 @@
         });
     </script>
 </body>
+
 </html>
