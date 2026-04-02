@@ -447,11 +447,13 @@
         .card {
             min-width: 310px;
             max-width: 310px;
+            min-height: 480px;
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            align-items: stretch;
             scroll-snap-align: center;
             flex-shrink: 0;
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -464,28 +466,42 @@
             border-color: var(--gold);
         }
 
+        /* Media area fills remaining card height (mobile column); desktop row stretches to match text column */
         .card-image-wrapper {
             position: relative;
             width: 100%;
-            height: 190px;
+            flex: 1 1 auto;
+            min-height: 280px;
+            background: #0d0b09;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
         }
 
-        .card-image-wrapper img {
+        .card-image-wrapper img,
+        .card-image-wrapper video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             filter: brightness(0.6);
             transition: 0.6s;
         }
 
+        .card-image-wrapper video {
+            display: block;
+        }
+
         .card-image-title {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+            z-index: 2;
+            padding: 15px 15px 18px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.92), transparent);
             color: var(--gold);
             font-family: 'Cinzel';
             font-size: 1.1rem;
@@ -494,7 +510,7 @@
         }
 
         .card-content {
-            padding: 20px;
+            padding: 22px 22px 26px;
             text-align: left;
         }
 
@@ -502,6 +518,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.65rem;
+            flex-shrink: 0;
         }
 
         .card-content p {
@@ -673,7 +690,7 @@
                 min-width: 100%;
                 max-width: 100%;
                 box-sizing: border-box;
-                min-height: 440px;
+                min-height: 540px;
                 border-radius: 20px;
             }
 
@@ -682,18 +699,14 @@
                 width: 44%;
                 max-width: 520px;
                 min-height: 0;
-                height: auto;
                 align-self: stretch;
-            }
-
-            .card-image-wrapper img {
-                min-height: 100%;
-                height: 100%;
+                height: auto;
             }
 
             .card .card-content {
                 flex: 1;
                 min-width: 0;
+                align-self: stretch;
                 padding: 28px 36px 32px;
                 justify-content: center;
                 gap: 0.75rem;
@@ -706,7 +719,7 @@
 
             .card-image-title {
                 font-size: 1.35rem;
-                padding: 20px 22px 18px;
+                padding: 20px 22px 24px;
             }
 
             .card:hover {
@@ -716,7 +729,7 @@
 
         @media (min-width: 1280px) {
             .card {
-                min-height: 480px;
+                min-height: 580px;
             }
 
             .card-image-wrapper {
@@ -724,7 +737,7 @@
             }
 
             .card .card-content {
-                padding: 32px 44px 36px;
+                padding: 36px 48px 40px;
             }
 
             .card .card-content p {
@@ -733,6 +746,7 @@
 
             .card-image-title {
                 font-size: 1.45rem;
+                padding: 22px 24px 28px;
             }
         }
     </style>
@@ -1034,7 +1048,7 @@
                         <div class="card-content">
                             <p>Christ forced to carry His cross to Golgotha</p>
                             <p>Christ falls under the weight of the cross.</p>
-                            <p>He was determined to fulfill His Father's will.</p>
+                            <p>Every step reopened his wounds.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -1072,6 +1086,7 @@
                         <div class="card-content">
                             <p>They stretched him upon the cross.</p>
                             <p>Nails driven into his hands and feet.</p>
+                            <p>They peirced my hand and my feet. (Psalm 22:16)</p>
                             <p>The cross is raised and dropped into the rocky ground.</p>
                         </div>
                     </div>
@@ -1092,7 +1107,7 @@
                     </div>
                     <div class="card">
                         <div class="card-image-wrapper">
-                            <img src="assets/the_sacrifies/veil.jpg">
+                            <img src="assets/the_sacrifies/the_vail.jpg">
                             <h3 class="card-image-title">The Miracles at the death of Christ</h3>
                         </div>
                         <div class="card-content">
@@ -1113,6 +1128,7 @@
                             <p>The fountain of the Sacraments and the life
                                 of the Church.</p>
                             <p>Christ’s death is complete, fulfilling God’s plan for humanity.</p>
+                            <p>Fulfilled all the prophecies. (Isaiah 53:3-6, Psalm 22:16-18, Exodus 12:46, Numbers 21:8-9)</p>
                         </div>
                     </div>
                 </div>
